@@ -1,0 +1,21 @@
+# GEÇİCİ STUB — bu makinedeki eski Xcode SDK'sı audioplayers_darwin'in yeni
+# AVFoundation sembolünü derleyemiyor. Bu stub iOS/macOS'ta native ses
+# eklentisini Dart-only boş uygulamayla değiştirir (AudioController hataları
+# zaten yutuyor); Android'de ses TAM çalışır. Xcode 15+'a geçince ana
+# pubspec.yaml'daki dependency_overrides bölümünü silmen yeterli.
+name: audioplayers_darwin
+version: 6.5.0
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+  flutter: ">=3.10.0"
+dependencies:
+  flutter:
+    sdk: flutter
+flutter:
+  plugin:
+    implements: audioplayers
+    platforms:
+      ios:
+        dartPluginClass: AudioplayersDarwinStub
+      macos:
+        dartPluginClass: AudioplayersDarwinStub
